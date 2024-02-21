@@ -1,0 +1,49 @@
+.div-1{
+    background-color: black;
+    
+}
+h1{
+    color: white;
+    padding: 15px;
+}
+.p-1{
+    color: #fd9711;
+    padding: 5px 10px;
+}
+.div-2{
+    background-color: black;
+}
+.p2{
+    color: white;
+    padding: 5px;
+    font-weight: 500;
+}
+.div-3{
+    padding: 10px;
+    border: 1px solid balck;
+}
+.p3{
+    color: red;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 5px;
+    margin:auto
+}
+.p4{
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 5px;
+}
+span{
+    color: blue;
+
+}
+.p5{
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 5px;
+}
+.div-4{
+    border: 1px solid black;
+}

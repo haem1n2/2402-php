@@ -1,0 +1,12 @@
+.ul-none{
+    list-style-type: none;
+}
+span{
+    color: red;
+    font-size: 2.0rem;
+    font-weight: 700;
+}
+li{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
