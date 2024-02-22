@@ -1,0 +1,55 @@
+/* .header, container .footer {
+    width: 700px;
+}
+.container {
+    position: relative;
+    height: 600px;
+}
+.section1{
+    top: 5%;
+    left: 2%;
+}
+.section2 {
+    top: 5%;
+    right: 2%;
+}
+.section3 {
+    bottom: 5%;
+    left: 2%;
+}
+.section4 {
+    bottom: 5%;
+    right: 2%;
+}
+.container > div {
+    position:absolute;
+    border: 1px dashed gray;
+    padding: 1rem;
+    width: 320px;
+    
+}
+.footer {
+    background-color: #000;
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+
+/*  float 이용 */
+ .header, container .footer {
+ }
+.container > div {
+    
+    border: 1px dashed gray;
+    padding: 1rem;
+    width: 320px;
+    float: left;
+}
+.footer {
+    background-color: #000;
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    clear: left;
+}

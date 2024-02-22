@@ -1,0 +1,61 @@
+div{
+    padding: 20px;
+}
+.main{
+    width: 300px;
+    background-color: pink;
+}
+.div-static{
+    background-color: gray;
+    /* static : 일반적인 문서의 흐름에 맞춰 배치 */
+    position: static;
+}
+.div-relative{
+    background-color: greenyellow;
+    /* lelative : 기본적으로 static와 같으나, 자신의 원래 위치를 기준으로 위치 지정 가능 */
+    position: relative;
+}
+/* #re12 { 
+    top: 30px;
+    left: 30px;
+}*/
+ .div-absolute1 {
+    background-color: chocolate;
+    position: absolute;
+    top: 0;
+
+}
+.div-absolute2 {
+    background-color: aqua;
+    position: absolute;
+    top: 90px;
+} 
+.div-fixed{
+    background-color: brown;
+    position: fixed;
+    bottom: 10%;
+    right: 10%;
+    z-index: 1;
+}
+.div-sticky {
+    background-color: cornflowerblue;
+    /* 
+    브라우저 화면을 스크롤 할 경우 나타나는 효과
+    자신의 위치가 화면 밖으로 벗어날 경우, 지정된 위치에 고정되어 표시 
+    */
+    position: sticky;
+    top: 0;
+}
+.div-fixed2{
+    background-color: orchid;
+    position: fixed;
+    bottom: 10%;
+    right: 15%;
+
+}
+.div-fixed3{
+    background-color: blue;
+    position: fixed;
+    bottom: 10%;
+    right: 20%;
+}

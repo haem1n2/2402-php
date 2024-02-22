@@ -1,0 +1,22 @@
+div, span{
+    border: 3px solid black;
+    margin: 10px
+}
+
+.none {
+    display: none;
+}
+.block{
+    display: block;
+}
+.inline{
+    display: inline;
+}
+.inline-block{
+    display: inline-block;
+    width: 300px;
+}
+span{
+    width: 200px;
+    display: block;
+}

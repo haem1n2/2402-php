@@ -1,0 +1,25 @@
+.main {
+    border: 2px solid black;
+    width: 95vw;
+    height: 120vw;
+}
+.position1 {
+    border: 2px solid black;
+    width: 25vw;
+    height: 25vw;
+    position: sticky;
+    top: 70px;
+    left: 60px;
+}
+.position2 {
+    border: 2px solid black;
+    width: 25vw;
+    height: 25vw;
+    position: sticky;
+    top: 90px;
+    left: 300px;
+}
+.position3 {
+    border: 2px solid black;
+    
+}

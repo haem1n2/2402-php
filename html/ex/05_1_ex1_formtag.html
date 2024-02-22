@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <!-- 
+            input : 유저한테 데이터를 입력 받을 수 있는 태그
+            type 속성의 값에 따라 역할이 달라진다
+         -->
+         <label for="input-id"> ID :</label>
+         <input type="text" id="input-id" readonly value="가나다">
+         <br>
+         <label for="input-pw"> PW:</label>
+         <input type="password" id="input-pw" placeholder="8글자 이상 입력">
+         <br>
+         <input type="date">
+         <br>
+         <input type="email">
+         <br>
+         <input type="number" min="0" max="10">
+         <br>
+         <input type="radio" name="radio-1" id="sb">
+         <label for="sb">딸기</label>
+         <input type="radio" name="radio-1" id="wm">
+         <label for="wm">수박</label>
+         <br>
+         <select name="sel" id="sel-1">
+            <option value="0">딸기</option>
+            <option value="1">바나나</option>
+         </select>
+         <br>
+         <input type="checkbox" name="chk-1" id="banana">
+         <label for="banana">바나나</label>
+         <input type="checkbox" name="chk-1" id="don">
+         <label for="don">돈가스</label>
+         <button type="submit">전송</button>
+         <button type="submit">초기화</button>
+         <input type="hidden"> 
+    </form>
+</body>
+</html>

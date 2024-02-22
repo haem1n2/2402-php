@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+            border: 2px solid #000;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <!-- caption : 테이블의 제목이나 설명을 넣을 때 사용 -->
+        <caption>테이블제목</caption>
+
+        <!-- colgroup, col : 열을 그룹으로 묶어서 스타일이나 속성 지정 -->
+        <colgroup>
+        <col>
+        <col>
+        <col style="background-color: red;">
+        <col>
+        </colgroup>
+        <!-- 
+            thead : 표의 제목 열들을 묶는 그룹태그
+            tbody : 표의 일반 데이터들을 묶는 그룹 태그
+            tfoot : 표의 하단 영역을 묶는 그룹 태그
+         -->
+        <!-- tr: 한 줄을 생성하는 태그 -->
+        <tr>
+            <!-- 
+                th : 제목 열 태그
+                td : 일반 열 태그
+             -->
+             <th>이름</th>
+             <th>반</th>
+             <th>국어</th>
+             <th>수학</th>
+        </tr>
+        <tr>
+            <td>홍길동</td>
+            <td rowspan="2">1반</td>
+            <td>90점</td>
+            <td>100점</td>
+        </tr>
+        <tr>
+            <td>갑순이</td>
+            
+            <td>60점</td>
+            <td>80점</td>
+        </tr>
+        <tr>
+            <th colspan="2">평균</th>
+            
+            <td>75점</td>
+            <td>90점</td>
+        </tr>
+    </table>
+</body>
+</html>
