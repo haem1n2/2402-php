@@ -1,0 +1,20 @@
+/* 전체 선택자 */
+*{
+    color: skyblue;
+}
+/* 타입선택자 */
+h1{
+    color: red;
+}
+/* 클래스선택자 */
+.p-test{
+    color: black;
+}
+/* ID 선택자 */
+#sel{
+    color: brown;
+}
+/* 그룹선택자 */
+span,b {
+    color: aqua;
+}
