@@ -1,0 +1,29 @@
+
+h1{
+    color:rgb(189, 11, 189);
+}
+fieldset{
+    background-image: url(../img/미어캣.png);
+    background-size:cover;
+
+}
+input:focus {
+    border:  3px solid red;
+    outline: none;
+}
+p{
+    border: 1px solid black;
+    background-color: whitesmoke;
+    width: 60px;
+    text-align: center;
+}
+
+.h3_required::before{
+    content: '*';
+    color: red;   
+}
+.ii{
+    
+    background-color: transparent;
+    
+}

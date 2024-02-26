@@ -1,0 +1,29 @@
+*{
+    margin: 0px;
+    width: 500px;
+}
+ul{
+    list-style: none;
+    padding: 20px;
+    width: 424px;
+    margin: 10px;
+}
+li{
+    float: left;
+    background-color: rgb(197, 197, 197);
+    width: 50px;
+    padding: 10px;
+    text-align: center;
+    box
+}
+.box,#box {
+    border-right:1px solid green;
+}
+.hover:hover{
+    background-color: #4d4d4d;
+}
+.red:hover{
+    background-color: red;
+    color: white;
+    border: none;
+}
