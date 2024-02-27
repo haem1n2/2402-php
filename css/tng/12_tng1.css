@@ -1,0 +1,17 @@
+.container{
+    padding: 5px;
+    background-color: gray;
+    width: 500px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+   
+}
+.item{
+    background-color: cadetblue;
+    border: 1px solid black;
+    width: 49%;
+    height: 32%;
+}
