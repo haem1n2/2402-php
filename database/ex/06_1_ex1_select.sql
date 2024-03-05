@@ -100,6 +100,7 @@ SELECT * FROM employees WHERE first_name LIKE('ge_');
 -- order by 절 : 데이터를 정렬해서 조회
 SELECT * FROM employees 
 ORDER BY birth_date DESC, hire_date ASC;
+--
 
 -- 입사일이1990/01/01 ~ 1995/12/31 이고, 성별이 여자인 사원의 정보를 
 -- 성과 이름 오름차순으로 정렬해서 조회해
@@ -113,3 +114,54 @@ ORDER BY last_name ASC, first_name ASC;
 SELECT DISTINCT *
 FROM salaries 
 WHERE emp_no = 10001;
+-- 10. GROUP BY절 , HAVING 절 그룹으로 묶어서 조회
+-- GROUP BY [ 그룹으로 묶을 컬럼 ] HAVING [ 집계함수 조건]
+
+SELECT 
+	gender
+	,COUNT(gender)
+FROM employees
+GROUP BY gender; 
+-- 현재 재직중인 직원의 직책별 사원 수 조회
+SELECT
+	title
+	,COUNT(title)
+FROM titles
+WHERE to_date >= 20240305
+GROUP BY title HAVING title LIKE('%engineer%')
+;
+
+-- 각 사원의 최고연봉을 조회
+SELECT 
+	emp_no
+	,MAX(salary) max_sal
+FROM salaries 
+GROUP BY emp_no HAVING MAX(salary) >= 80000
+;
+
+-- AS : 컬럼에 별칭 부여 (AS 생략가능)
+
+-- LIMIT, OFFSET : 출력하는 데이터의 개수 제한
+SELECT *
+FROM employees
+LIMIT 3 ,20;
+
+-- 가장 높은 연봉을 받는 사원 번호 조회
+SELECT
+	emp_no
+	,MAX(salary) max_sal
+FROM salaries
+GROUP BY emp_no
+ORDER BY max_sal DESC
+LIMIT 1;
+-- offset : , 생략가능..!
+
+-- 재직중인 사원 중 급여 상위 5위까지 조회
+
+SELECT
+	emp_no
+	,MAX(salary) max_sal
+FROM salaries
+WHERE to_date >= 20240305
+ORDER BY max_sal desc 
+LIMIT 5;
