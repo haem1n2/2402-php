@@ -14,8 +14,8 @@ SELECT
 	emp_no
 	FROM salaries
 	where
-	salary >= 60000
-	AND salary <= 70000
+	salary BETWEEN 60000
+	AND  70000
 	and TO_date >= NOW();
 -- 4 사원번호가 10001, 10005인 사원의 사원테이블의 모든 정보를 조회해 주세요.
 SELECT *
