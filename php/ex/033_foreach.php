@@ -54,6 +54,15 @@ foreach($arr as $item) {
 // $arr = [4,5,7,3,2,9];
 // 위의 배열 중 가장 큰 수인 9가 출력 되어야 합니다.
 
+$arr = [4,5,7,3,2,9];
+$temp = 0;
+foreach($arr as $val){
+    if($temp < $val){
+    $temp = $val;
+    }
+}
+echo $temp;
+
 $temp = 0;
 /*$srt = "";
 $arr = [];
