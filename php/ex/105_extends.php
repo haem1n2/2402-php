@@ -38,3 +38,4 @@ $obj = new Child("홍길동");
 // cunstruct 생성자를 실행 자식요소에 없을경우 부모요소에서 가져와서 실행
 $obj->car();
 $obj->getName();
+
