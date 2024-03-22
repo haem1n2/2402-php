@@ -12,18 +12,15 @@ for($i = 1; $i < 4; $i++){
     }
     echo "\n";
 }
-for($i = 0; $i < 3; $i++){
-    for($f = 1; $f < 4; $f++){
-        echo "*";
-    }
-    for($w =1; $w < 4-$i; $w++){
+for($i = 1; $i <= 3; $i++){
+    for($f = 1; $f <= 3; $f++){
         echo " ";
     }
-    for($y = 1; $y <4; $y++){
+    for($y = 1; $y <= (4-2*$i); $y++){
         echo "*";
     }
-    for($z =1; $z < 4-$y; $z++){
-        echo " ";
+    for($z =1; $z <= $i; $z++){
+        echo "*";
     }
     echo "\n";
 }
