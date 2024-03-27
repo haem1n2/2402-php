@@ -81,3 +81,17 @@ button{
     margin-top:10px;
     padding-left: 20px;
 }
+.main-bottom > a {
+    text-decoration: none;
+    color : #fff;
+    font-size: 1.2rem;
+    display: inline-block;
+    background-color: palevioletred;
+    border-radius: 30px;
+    text-align: center;
+    margin: 2px;
+    padding: 2px;
+}
+.main-bottom{
+    text-align: center;
+}
