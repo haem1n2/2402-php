@@ -43,7 +43,7 @@ function db_select_boards_paging(&$conn, &$array_param) {
         ." deleted_at IS NULL "
         ." ORDER BY "
         ." no DESC "
-        ." LIMIT 5 OFFSET 1 "
+        ." LIMIT :list_cnt OFFSET :offset "
         ;
     // Query 실행
     $stmt = $conn->prepare($sql);
@@ -111,6 +111,27 @@ function db_delete_boards_no(&$conn, &$array_param) {
         ."  no = :no "
     ;
 
+    // Query 실행
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($array_param);
+
+    // return 
+    return $stmt->rowCount();
+
+    }
+
+    // pk 특정 레코드 수정 
+    function db_update_boards_no(&$conn, &$array_param) {
+        // SQL
+    $sql =
+        " UPDATE boards"
+        ." SET "
+        ."  title = :title "
+        ." ,content = :content "
+        ." ,updated_at = NOW() "
+        ." WHERE "
+        ."  no = :no "
+    ;
     // Query 실행
     $stmt = $conn->prepare($sql);
     $stmt->execute($array_param);

@@ -57,7 +57,7 @@ try {
 <body>
 
     <header>
-      <h1><a href="./index.html">mini Board</a></h1>
+      <h1><a href="./list.php">mini Board</a></h1>
     </header>
     <main>
         <div class="main-middle">
