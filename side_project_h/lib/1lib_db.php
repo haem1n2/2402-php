@@ -33,6 +33,7 @@ function my_db_conn() {
                 ." no "
                 ." ,title "
                 ." ,created_at "
+                ." ,flg_com "
                 ." FROM "
                 ." todo "
                 ." WHERE "
@@ -68,4 +69,67 @@ function my_db_conn() {
             return $stmt->rowCount();
         
         }
-?>
+
+                // pk로 게시글 정보 조회
+    function db_select_todo_no(&$conn, &$array_param) {
+        $sql =
+        " SELECT "
+        ."  no  "
+        ."  ,title "
+        ."  ,created_at  "
+        ."FROM      "
+        ."  todo "
+        ."WHERE "
+        ."  no = :no "
+    ;
+
+    // Query 실행
+    $stmt = $conn-> prepare($sql);
+    $stmt->execute($array_param);
+    $result = $stmt->fetchAll();
+
+     // 리턴
+     return $result;   
+
+    }
+
+
+
+
+            // pk로 특정 게시글 삭제 처리
+function db_delete_todo(&$conn, &$array_param) {
+        // SQL
+    $sql =
+        " UPDATE todo"
+        ." SET "
+        ."  deleted_at = NOW() "
+        ." WHERE "
+        ."  no = :no "
+    ;
+
+    // Query 실행
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($array_param);
+
+    // return 
+    return $stmt->rowCount();
+
+}
+
+function db_update_todo_no(&$conn, &$array_param) {
+    $sql = 
+        " UPDATE todo"
+        ." SET "
+        ."  flg_com = CASE WHEN flg_com = '0' THEN '1' ELSE '0' END "
+        ." WHERE "
+        ."  no = :no "
+    ;
+
+    // Query 실행
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($array_param);
+
+    // return 
+    return $stmt->rowCount();
+}
+    

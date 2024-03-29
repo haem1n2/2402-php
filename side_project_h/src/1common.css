@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: palevioletred;
+    background-color: pink;
 }
 .background{
     height: 80vh; 
@@ -14,15 +14,36 @@ body{
 }
 h1{
     text-align: center;
+    color: pink;
     text-decoration: underline;
     padding: 20px;
     font-size: 3rem
 }
+.divbutton2{
+    display: grid;
+    grid-template-columns: 15fr 1fr;
+    padding-left: 30px;
+}
+.divbutton2 > a{   
+    text-decoration: none;
+    color : #fff;
+    font-size: 1.2rem;
+    display: inline-block;
+    background-color: pink;
+    border-radius: 30px;
+    text-align: center;
+    width: 120px;
+    padding: 15px;
+    margin-right: 20px;
+}
+.divbutton2 > a:hover{
+    background-color: rgb(248, 208, 214);
+    
+}
 .cont{
-    display: flex;
-    justify-content: start;
+    display: grid;  
+    grid-template-columns: 20fr 1fr;
     padding: 30px 10px;
-
 }
 .in{
     font-size: 1.3rem;
@@ -32,27 +53,18 @@ h1{
 
 
 }
-.out[type="checkbox"]{
+.btn-update{
     display: none;
   }
-.out[type="checkbox"] + label{
+.btn-update + label{
     display: inline-block;
     width: 30px;
     height: 30px;
     border:3px solid #707070;
-    position: relative;
-  }
-.out:checked + label::after{
-    content:'✔';
     font-size: 25px;
-    width: 30px;
-    height: 30px;
     text-align: center;
-    position: absolute;
-    left: -4px;
-    top:-6px;
     color: pink;
-}
+  }
 .out:checked ~ .in {
     text-decoration: line-through;
     text-decoration-color: pink;
@@ -75,18 +87,20 @@ button{
 }
 .divbutton{
     font-size: 1.5rem;
+    text-align: center;
 }   
-.divbutton2{
-    width: 10vw;
-    margin-top:10px;
-    padding-left: 20px;
-}
+
+.divbutton3{
+    width: 80px;
+    padding-right: 10px;
+}   
+
 .main-bottom > a {
     text-decoration: none;
     color : #fff;
     font-size: 1.2rem;
     display: inline-block;
-    background-color: palevioletred;
+    background-color: pink;
     border-radius: 30px;
     text-align: center;
     margin: 2px;
@@ -96,5 +110,16 @@ button{
     text-align: center;
 }
 .main-bottom > a:hover {
-    background-color: pink;
+    background-color:  pink;
+}
+.in_delete {
+    color: black;
+    font-size: 1.3rem;
+    text-decoration: none;
+    display: flex;  
+    justify-content: end;
+}
+ h1 > a{
+    color: pink;
+    text-decoration: none;
 }

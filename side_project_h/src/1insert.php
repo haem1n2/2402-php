@@ -74,21 +74,20 @@ if(REQUEST_METHOD === "POST") {
 <body>
     <div class="background">
     <div class="header">
-    <h1>&nbsp &nbspTO DO LIST&nbsp &nbsp</h1>
+    <h1><a href="./1main.php">&nbsp &nbspTO DO LIST&nbsp &nbsp</a></h1>
 </div>
 <form action="./1insert.php" method="post">
     <div class="border">
         <div class="cont">
         <input type="hidden" name="no" >
-        <input class="out" type="checkbox" name="nemo" id="nemo" >
-        <label for="nemo"></label>
         <input class="in" type="text" id="name" name="title" required >
         <label for="name"></label>
-        <button class="divbutton2" type="submit">전송</button>
-       <a href="./index.html"><button class="divbutton" type="reset">⚔</button></a>
-       </div>
+        <button class="divbutton3" type="submit">글쓰기</button>
+        <a class="in_delete" href="./1main.php">⚔</a>
+      </div>
     </div>
-</form>
+  </form>
+
     
 </div>
 </div>
