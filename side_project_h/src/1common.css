@@ -7,7 +7,7 @@ body{
     background-color: pink;
 }
 .background{
-    height: 80vh; 
+    height: 80%; 
     margin: 40px 20px 20px 20px;
     background-color: white;
     
@@ -37,21 +37,54 @@ h1{
     margin-right: 20px;
 }
 .divbutton2 > a:hover{
-    background-color: rgb(248, 208, 214);
-    
+    background-color: rgb(248, 208, 214);   
 }
+.insert_in{
+    display: flex;
+    justify-content: center;
+}
+
+.insert_form{
+    width: 80%;
+}
+
+.insert_group {
+    display: flex;
+    align-items: center;
+}
+.insert_input{
+    flex: 1;
+    width: 80%;
+    height: 40px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    margin-left: 20px;
+    background-color: rgb(233, 233, 233);
+    font-size: 1.5rem;
+}
+
+.insert_button {
+    width: 10%;
+    height: 25px;
+    margin-left: 10px;
+    background-color: pink;
+    color: white; 
+    border: 0;
+    border-radius: 15px;
+    cursor: pointer; 
+}
+
 .cont{
-    display: grid;  
-    grid-template-columns: 20fr 1fr;
+    display: flex;  
+    justify-content: space-between;
     padding: 30px 10px;
+    width: 100%;
 }
 .in{
     font-size: 1.3rem;
-    width: 90%;
     margin-left: 20px;
     border-width: 0;
-
-
 }
 .btn-update{
     display: none;
@@ -91,8 +124,10 @@ button{
 }   
 
 .divbutton3{
-    width: 80px;
-    padding-right: 10px;
+    padding-left: 100px;
+    display: flex;
+    justify-content: end;
+    padding-top: 5px;
 }   
 
 .main-bottom > a {
@@ -122,4 +157,7 @@ button{
  h1 > a{
     color: pink;
     text-decoration: none;
+}
+.flex {
+    display: flex;
 }

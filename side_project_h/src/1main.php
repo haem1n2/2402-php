@@ -53,21 +53,24 @@ try{
     <div class="header">
     <h1><a href="./1main.php">&nbsp &nbspTO DO LIST&nbsp &nbsp</a></h1>
 </div>
- <div class="divbutton2">
-    <div></div>
-     <a href=./1insert.php type="submit">글쓰기</a>
- </div>   
+ <div></div>
+ <div class="insert_in">
+            <form class= insert_form action="./2insert.php" method="post">
+                <div class="input_group">
+                <input class = "insert_input" type="text" name="title" id="title">
+                <button class = "insert_button" type="submit">작성완료</button>
+                </div>
+            </form>
+        </div>
 <?php foreach ($result as $item){
 ?>
 <div class="border">
     <div class="cont">
-        <form action="./update.php" method="post">
+        <form class= "flex"action="./update.php" method="post">
             <input type="hidden" name="no" value="<?php echo $item["no"]; ?>">
             <button type="submit" class="btn-update" id="nemo<?php echo $item["no"];?>"></button>
             <label for="nemo<?php echo $item["no"];?>"><?php echo $item["flg_com"] === "1" ? "✔ " : "" ?></label>
-            <label for="name"></label>
-            <input class="in" type="text" id="name" name="title"  required value ="<?php echo $item["title"]; ?>">
-            <label for="name"></label>
+            <div class="in"><?php echo $item["title"]; ?></div>
         </form>
         <form action="./1delete.php" method="post">
             <input type="hidden" name="no" value="<?php echo $item["no"]; ?>">

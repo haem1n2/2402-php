@@ -77,6 +77,7 @@ function my_db_conn() {
         ."  no  "
         ."  ,title "
         ."  ,created_at  "
+        ."  , flg_com "
         ."FROM      "
         ."  todo "
         ."WHERE "
