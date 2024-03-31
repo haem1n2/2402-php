@@ -31,7 +31,7 @@ CREATE TABLE orders (
 	
 	
 );
-
+	
 
 -- ALTER TABLE : 테이블의 구조를 수정하는 SQL
 -- FK 추가

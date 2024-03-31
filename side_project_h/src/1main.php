@@ -1,7 +1,7 @@
 <?php
 require_once( $_SERVER["DOCUMENT_ROOT"]."/src/1config.php"); // 설정 파일 호출
 require_once(FILE_LIB_DB); // DB관련 라이브러리
-$list_cnt = 5; //한 페이지 최대 표시 수
+$list_cnt = 7; //한 페이지 최대 표시 수
 $page_num = 1; // 페이지 번호 초기화
 
 try{
@@ -81,6 +81,7 @@ try{
 <?php
 }
 ?>
+
 </div>
 <div class="main-bottom">
     <a href="./1main.php?page=<?php echo $prev_page_num ?>"class ="a-button small-button">이전</a>
@@ -94,5 +95,6 @@ try{
     <a href="./1main.php?page=<?php echo $next_page_num ?>" class ="a-button small-button">다음</a>
 </div>
 </div>
+
 </body>
 </html>
