@@ -6,3 +6,4 @@ xcopy 원본경로 카피경로 /E /Y
 
 xcopy D:\workspace\2402-php\side_project_h C:\Apache24\htdocs /E /Y
 
+xcopy D:\workspace\2402-php\ss C:\Apache24\htdocs /E /Y

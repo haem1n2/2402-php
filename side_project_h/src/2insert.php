@@ -16,7 +16,8 @@ if(REQUEST_METHOD === "POST") {
     }
     if(count($arr_err_param) > 0 ){
       // 예외 처리
-      throw new Exception("Parameter Error : ".implode(", ", $arr_err_param));
+      // throw new Exception("Parameter Error : ".implode(", ", $arr_err_param));
+      throw new Exception("뭐라도 입력하소");
     }
 
     // DB connect

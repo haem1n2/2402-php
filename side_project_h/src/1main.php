@@ -9,10 +9,12 @@ try{
     // Query 실행
      // 파라미터에서 page 획득
       
+
+
         $page_num = isset($_GET["page"]) ? $_GET["page"] : $page_num;
         
 
-                 
+              
      // 게시글 수 조회
      $result_board_cnt = db_select_todo_cnt($conn);
 
@@ -54,22 +56,23 @@ try{
     <h1><a href="./1main.php">&nbsp &nbspTO DO LIST&nbsp &nbsp</a></h1>
 </div>
  <div></div>
- <div class="insert_in">
-            <form class= insert_form action="./2insert.php" method="post">
-                <div class="input_group">
-                <input class = "insert_input" type="text" name="title" id="title">
-                <button class = "insert_button" type="submit">작성완료</button>
-                </div>
-            </form>
-        </div>
+    <div class="insert_in">
+                <form class= insert_form action="./2insert.php" method="post">
+                    <div class="input_group">
+                    <input class = "insert_input" type="text" name="title" id="title">
+                    <button class = "insert_button" type="submit">작성완료</button>
+                    </div>
+                </form>
+            </div>
 <?php foreach ($result as $item){
 ?>
-<div class="border">
+<div class="border" id="border<?php echo $item["no"]; ?>">
     <div class="cont">
         <form class= "flex"action="./update.php" method="post">
             <input type="hidden" name="no" value="<?php echo $item["no"]; ?>">
+            <input type="hidden" name="page" value="<?php echo $page_num; ?>">
             <button type="submit" class="btn-update" id="nemo<?php echo $item["no"];?>"></button>
-            <label for="nemo<?php echo $item["no"];?>"><?php echo $item["flg_com"] === "1" ? "✔ " : "" ?></label>
+            <label class="nemo" for="nemo<?php echo $item["no"];?>"><?php echo $item["flg_com"] === "1" ? "✔ " : "" ?></label>
             <div class="in"><?php echo $item["title"]; ?></div>
         </form>
         <form action="./1delete.php" method="post">
