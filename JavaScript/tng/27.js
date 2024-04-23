@@ -20,3 +20,28 @@ for(let val of ARR2) {
 
 console.log(copyArr);
 console.log(copyArr2);
+
+
+
+// 강사님이랑 같이 한 거 
+
+let copyArrr = [...ARR1];
+copyArr.sort((a, b) => a - b);
+console.log(copyArrr);
+
+const EVEN = ARR2.filter(num => num % 2 === 0);
+const ODD = ARR2.filter(num => num % 2 !== 0);
+console.log(EVEN, ODD);
+
+const EVEN2 = []
+const ODD2 = []
+ARR2.forEach(num => {
+    if(num %  2 === 0) {
+        EVEN2[EVEN2.length] = num;
+    } else {
+        ODD2[ODD2.length] = num;
+    }
+});
+console.log(EVEN, ODD);
+
+
