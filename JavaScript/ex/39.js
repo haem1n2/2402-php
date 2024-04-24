@@ -74,3 +74,36 @@ CSS_LIST_EVEN.forEach(node => node.style.color = 'red');
 const CSS_LIST_ODD = document.querySelectorAll('#ul > li:nth-child(odd)');
 CSS_LIST_ODD.forEach(node => node.style.color = 'blue');
 
+
+// 강사님 방법
+const ITEMS = document.querySelectorAll('#ul > li');
+
+ITEMS.forEach((item, key) => (item.style.color = key % 2 ===0 ? 'red' : 'blue' ));
+
+// -----------------
+// 새로운 요소 생성
+// -----------------
+// createElement(태그명) : 새로운 요소 생성 
+const NEW_LI = document.createElement('li');
+NEW_LI.innerHTML = '광산게임';
+
+const TARGET = document.querySelector('#ul'); // 삽입할 부모요소 선택 
+
+// appendChild(노드) : 해당 부모 노드에 가장 마지막 자식으로 노드 추가 
+TARGET.appendChild(NEW_LI);
+
+// insertBefore(새로운노드, 기준노드) : 해당 부모 노드의 자식인 기준 노드 앞에 새로운 노드 추가
+const NEW_LI2 =document.createElement('li');
+NEW_LI2.innerHTML = '굴착소년쿵야';
+
+const hyeunsoo = document.querySelector('#ul > li:nth-child(3)');
+TARGET.insertBefore(NEW_LI2, hyeunsoo);
+
+const NEW_LI3 = document.createElement('li');
+NEW_LI3.innerHTML = '프리셀';
+
+const freecell = document.querySelector('#ul > li:nth-child(5)');
+TARGET.insertBefore(NEW_LI3, freecell); 
+
+// removeChild() : 해당 부모 노드의 자식을 삭제 
+TARGET.removeChild(NEW_LI3);

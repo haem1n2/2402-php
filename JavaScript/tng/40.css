@@ -1,0 +1,16 @@
+.three_container{
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.two {
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+}
+
+    /* .display-none{
+        display: none;
+    } */
