@@ -60,3 +60,75 @@ REMOVE.addEventListener('click', () => {
     const HI = document.querySelector('.img-container');
     HI.textContent = "";
 })
+
+
+// 강사님이랑 같이
+
+// API 호출 버튼 이벤트
+const btnAPI = document.querySelector('#btn-api');
+btnAPI.addEventListener('click', myGetData);
+
+// API 호출
+function myGetData() {
+    // url 획득
+    const url = document.querySelector('#input-url').value;
+
+    // API 요청
+    // axios.get(url)
+    // .then(response => {
+    //     console.log(response);
+    //     myMakeItem(response.data);
+    // })
+    // .catch(err => console.log(err));
+
+    // try {
+    //     const response = await axios.get(url);
+    //     myMakeItem(response.data);
+    // } catch(error) {
+    //     console.log(error);
+    // }
+
+}
+
+function myMakeItem() {
+    data.forEach(item => {
+        // 아이템을 추가할 부모요소 획득
+        const main = document.querySelector('.main');
+        // article박스 생성
+        const newArticle = document.createElement('div');
+        const newArticleId = document.createElement('div');
+        const newImg = document.createElement('img');
+        //아이템 셋팅
+        newArticle.classList = 'article';
+        newArticleId.classList = 'div-article-img';
+        newImg.classList = 'div-article-img';
+        newArticleId.textContent = item.id;
+        newImg.src = item.download_url;
+        // 생성한 요소 결합
+        newArticle.appendChild(newArticleId);
+        newArticleId.appendChild(newImg); // 아티클에 이미지 추가
+        main.appendChild(newArticle); // 메인에 아티클 추가
+        });
+    }
+    const btnMain = document.querySelector('#btn-clear');
+    btnMain.addEventListener('click', () => {
+    //    const main = document.querySelector('.main')
+    //    main.innerHTML ='';
+
+    // 최대 5개까지 씩 지우기
+    const articleList = document.querySelectorAll('.article');
+
+    for(let i = 0; i < 5; i++) {
+        main.removeChild(articleList[articleList.length- 1 - i]);
+    }
+    });
+
+    // // 지우기 해도 에러 안나게
+    // for(let i = i < 5; i++) {
+    //     let idx = articleList.length - 1 - i;
+    //     if(idx < 0) {
+    //         // index가 0보다 작으면 루프 종료 
+    //         break;
+    //     }
+    //     main.reoveChild(articleList[idx]);
+    // }
