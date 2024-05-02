@@ -7,7 +7,7 @@ class UserValidator {
 
         // 패턴 생성
         $patternEmail = "/^[0-9a-zA-Z](?!.*?[\-\_\.]{2})[a-zA-Z0-9\-\_\.]{3,63}@[0-9a-zA-Z](?!.*?[\-\_\.]{2})[a-zA-Z0-9\-\_\.]{3,63}\.[a-zA-Z]{2,3}$/";
-        $patternPassword = "/^[a~zA~Z0~9!@]{8,20}$/";
+        $patternPassword = "/^[a-zA-Z0-9!@]{8,20}$/";
 
         // 이메일 체크 
         if(array_key_exists("u_email", $param_arr)) {
