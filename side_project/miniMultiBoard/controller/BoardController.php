@@ -51,9 +51,10 @@ class BoardController extends controller {
     // 게시글 작성
     public function addPost() {
         // 이미지 파일 처리 
+        if(!empty($_FILES["img"]["name"])) {
         $path = "/"._PATH_IMG.$_FILES["img"]["name"];
         move_uploaded_file($_FILES["img"]["tmp_name"], _ROOT.$path);
-            
+        }
 
 
         $requestData = [
@@ -89,7 +90,8 @@ class BoardController extends controller {
         $modelBoards = new BoardsModel();
         $resultBoard = $modelBoards->getBoard($requestData);
 
-
+        // 로그인 유저 pk 추가
+        $resultBoard[0]["login_u_id"] = $_SESSION["u_id"];
         // json 변환 
         $response =json_encode($resultBoard);
 
@@ -97,6 +99,8 @@ class BoardController extends controller {
         header('Content-type: application/json');
         echo $response;
         exit;
+
+        
 
     }
 
