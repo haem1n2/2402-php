@@ -23,6 +23,12 @@ class UserValidator {
                 $arrErrorMsg[] = "비밀번호는 영어 대소문자 및 숫자, 특수문자(!,@) 8~20로 작성해주세요.";
             }
         }
+        // 패스워드 중복 체크 
+        if(array_key_exists("u_pw", $param_arr) && array_key_exists("u_pw_why", $param_arr)) {
+            if($param_arr["u_pw"] !== $param_arr["u_pw_why"]) {
+                $arrErrorMsg[] = "비밀번호가 일치하지않습니다.";
+            }
+        }
 
         // 이름 체크
         if(array_key_exists("u_name", $param_arr)) {
@@ -30,6 +36,7 @@ class UserValidator {
                 $arrErrorMsg[] = "이름은 한글만 입력해주세요.";
             }
         }
+
 
         return $arrErrorMsg;
     }

@@ -28,6 +28,8 @@ class Controller {
         $modelBoardsname = new BoardsnameModel();
         $this->arrBoardsNameInfo = $modelBoardsname->getBoardnameList();
         $modelBoardsname->destroy();
+   
+        
 
         // 해당 action 호출 
         $resultAction = $this->$action();

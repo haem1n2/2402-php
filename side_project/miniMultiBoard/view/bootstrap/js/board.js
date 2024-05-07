@@ -1,3 +1,5 @@
+// 상세 처리
+
 document.querySelectorAll(".my-btn-detail").forEach($item => {
     $item.addEventListener('click', () => {
         const url = '/board/detail?b_id=' + $item.value;
@@ -28,3 +30,32 @@ document.querySelectorAll(".my-btn-detail").forEach($item => {
         
     });
 });
+
+// 삭제 처리 (async로 한 번 해보자)
+document.querySelector('#my-btn-delete').addEventListener('click', myDeleteCard);
+
+async function myDeleteCard(event) {   
+     const url = '/board/delete'; //url 설정
+
+    const data =new FormData(); // form 설정
+    data.append('b_id', event.target.value); // b_id 셋팅
+    try {
+        const responese = await axios.post(url, data);
+        //  responese.data = ['errorFlg' : false, 'errorMsg': '', 'b_id': 16]
+        console.log(responese)
+        if(responese.data.errorFlg) {
+            // 에러일 경우 
+            alert('삭제에 실패 했습니다.');        
+        } else {
+            // 정상일 경우
+            const main = document.querySelector('main'); // 부모 요소
+            const card = document.querySelector('#card' + responese.data.b_id); // 삭제할 요소
+            main.removeChild(card);
+            
+        }
+    } catch (error) {
+        console.log(error);
+    }
+
+
+}
