@@ -30,6 +30,13 @@ class UserValidator {
             }
         }
 
+        // 패스워드 중복 체크 
+        if(array_key_exists("u_pw_chk", $param_arr)) {
+            if($param_arr["u_pw"] !== $param_arr["u_pw_chk"]) {
+                $arrErrorMsg[] = "비밀번호가 일치하지않습니다.";
+            }
+        }
+
         // 이름 체크
         if(array_key_exists("u_name", $param_arr)) {
             if(preg_match($patternname, $param_arr["u_name"], $matches) === 0) {

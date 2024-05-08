@@ -160,7 +160,7 @@ class UserController extends Controller
         return base64_encode($pw . $pk);
     }
 
-    // 수정 페이지로 이동
+    // // 수정 페이지로 이동
     protected function updateget() {
         // 세션에서 사용자 식별자 가져오기
         $user_id = $_SESSION["u_id"];
@@ -216,5 +216,62 @@ class UserController extends Controller
              return "update.php";
          }
 
+     }
+
+     // 강사님 따라한거
+     // 회원 정보 수정 페이지로 이동
+     protected function editGet() {
+        // 회원 정보 습득
+        $queryData = [
+            "u_id" => $_SESSION["u_id"]
+        ];
+        $modelUsers = new UsersModel();
+        $this->userInfo = $modelUsers->getUserInfo($queryData);
+
+
+        return "edit.php";
+     }
+
+
+     // 회원 정보 수정 처리 
+     protected function editPost() {
+        $requestData = [
+            "u_name" => $_POST["u_name"]
+            ,"u_pw" => $_POST["u_pw"]
+            ,"u_pw_chk" => $_POST["u_pw_chk"]
+        ];
+
+        
+        // 유저 정보 획득
+        $selectData = [
+            "u_id" => $_SESSION["u_id"]
+        ];
+        $modelUsers = new UsersModel();
+        $this->userInfo = $modelUsers->getUserInfo($selectData);
+        
+        // 유효성 체크
+        $resultValidator = UserValidator::chkValidator($requestData);
+         if (count($resultValidator) > 0) {
+             $this->arrErrorMsg = $resultValidator;
+             return "edit.php";
+         }
+        // 유저 정보 업데이트
+        $updataData = [
+            "u_id" => $_SESSION["u_id"]
+            ,"u_name" => $requestData["u_name"]
+            ,"u_pw" => $this->encryptionPassword($requestData["u_pw"], $this->getUserInfo("u_email"))
+        ];
+
+        $modelUsers->beginTransaction();
+        $resultUpdate = $modelUsers->updateUserInfo($updataData);
+        if($resultUpdate !== 1) {
+            $modelUsers->rollback();
+            $this->arrErrorMsg = ["회원정보 수정 실패"];
+            return "edit.php";
+        } 
+
+        $modelUsers->commit();
+
+        return "Location: /board/boardList";
      }
 }

@@ -64,15 +64,22 @@ class Router{
             if($httpMethod === "POST") {
                 new BoardController("deletePost");
             }
-            } else if($url === "user/update") {
-                // 회원 수정 페이지
-                if($httpMethod === "GET") {
-                    new UserController("updateget");
-                } else {
-                    new UserController("updatePost");
-                }
-            } 
-     
+        } else if($url === "user/update") {
+            // 회원 수정 페이지
+            if($httpMethod === "GET") {
+                new UserController("updateget");
+            } else {
+                new UserController("updatePost");
+            }
+            // 강사님 따라한거
+        } else if($url === "user/edit") {
+            // 회원 정보 수정 
+            if($httpMethod === "GET") {
+                new UserController("editGet");
+            } else {
+                new UserController("editPost");
+            }
+        }
 
          // 예외 처리
     echo "잘못된 URL : ".$url;
