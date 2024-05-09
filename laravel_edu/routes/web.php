@@ -95,7 +95,7 @@ Route::get('/name/home/php505/root', function(){
 // ------------------
 // 뷰에 데이터 전달
 // with(키, 값) 메소드를 이용해서 뷰에 전달
-// 뷰에서는 $키로 사용이 가능하다.
+// 뷰에서는 $키로 사용이
 // ------------------
 Route::get('/send', function () {
     return view('send')->with(['gender' => '무성', 'name' => '이현수']);
@@ -111,6 +111,37 @@ Route::get('/send', function () {
     ->with('name', '홍길동')
     ->with('data', $arr);
 });
+
+
+// ----------------------------
+// 컨트롤러 연결
+// ----------------------------
+// 커맨드로 컨트롤러 생성 : php artisan make:controller 컨트롤러명
+use App\Http\Controllers\TestController;
+Route::get('/test', [TestController::class, 'index']);
+// TestController->create() : get
+Route::get('/test/create', [TestController::class, 'create']);
+
+
+// 리소스 라우터 
+use App\Http\Controllers\TaskController;
+Route::resource('task', TaskController::class);
+
+// ------------------------
+// 블레이드 템플릿 연습용
+// ------------------------
+use App\Http\Controllers\EduController;
+use App\Http\Controllers\UserController;
+
+Route::get('/edu', [EduController::class, 'index']);
+
+// --------------------
+// DB 관련 연습용
+// --------------------
+Route::get('/user', [UserController::class, 'eduUser']);
+
+
+
 
 // 존재하지 않는 라우터 정의
 Route::fallback(function() {

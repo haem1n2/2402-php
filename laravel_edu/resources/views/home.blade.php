@@ -6,10 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body>
-    <h1>home</h1>
-    <form action="/home" method="post">
-        {{-- csrf-token 추가 --}}
+<body>sd
         @csrf
         <button type="submit">POST</button>
     </form>
