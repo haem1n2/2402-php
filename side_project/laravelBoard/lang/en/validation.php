@@ -43,7 +43,7 @@ return [
     'digits_between' => 'The :attribute must be between :min and :max digits.',
     'dimensions' => 'The :attribute has invalid image dimensions.',
     'distinct' => 'The :attribute field has a duplicate value.',
-    'email' => 'The :attribute must be a valid email address.',
+    'email' => ' :attribute 틀렸티비',  
     'ends_with' => 'The :attribute must end with one of the following: :values.',
     'enum' => 'The selected :attribute is invalid.',
     'exists' => 'The selected :attribute is invalid.',
@@ -83,17 +83,17 @@ return [
     ],
     'mac_address' => 'The :attribute must be a valid MAC address.',
     'max' => [
-        'numeric' => 'The :attribute must not be greater than :max.',
+        'numeric' => ' :attribute :max글자 넘기지마',
         'file' => 'The :attribute must not be greater than :max kilobytes.',
-        'string' => 'The :attribute must not be greater than :max characters.',
+        'string' => ':attribute :max글자 넘기지마',
         'array' => 'The :attribute must not have more than :max items.',
     ],
     'mimes' => 'The :attribute must be a file of type: :values.',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
-        'numeric' => 'The :attribute must be at least :min.',
+        'numeric' => 'The :attribute :min글자 넘겨.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => ':attribute :min글자넘겨',
         'array' => 'The :attribute must have at least :min items.',
     ],
     'multiple_of' => 'The :attribute must be a multiple of :value.',
@@ -106,8 +106,8 @@ return [
     'prohibited_if' => 'The :attribute field is prohibited when :other is :value.',
     'prohibited_unless' => 'The :attribute field is prohibited unless :other is in :values.',
     'prohibits' => 'The :attribute field prohibits :other from being present.',
-    'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    'regex' => ':attribute 틀렸티비',
+    'required' => ':attribute 응 아니야',
     'required_array_keys' => 'The :attribute field must contain entries for: :values.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
@@ -158,6 +158,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'email' => '어쩔이메일'
+        ,'password' => '어쩔비번'
+    ],
 
 ];
