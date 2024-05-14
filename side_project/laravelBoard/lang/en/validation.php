@@ -161,6 +161,7 @@ return [
     'attributes' => [
         'email' => '어쩔이메일'
         ,'password' => '어쩔비번'
+        ,'name' => '어쩔이름'
     ],
 
 ];

@@ -27,3 +27,17 @@ Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 // -----------
 
 Route::middleware('auth')->resource('/board', BoardController::class);
+
+// -------------
+// 회원가입 관련
+// ---------------
+
+Route::get('/regist', function () {
+    return view('regist');
+})->name('regist.index');
+
+Route::post('/regist', [UserController::class, 'regist'])->name('regist.store');
+
+// 이메일 체크
+Route::post('/user/chk', [UserController::class, 'emailChk']);
+ 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Board;
+use App\Models\BoardName;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -25,8 +26,14 @@ class BoardController extends Controller
         // 게시글 조회
         $resultBoardList = Board::where('type', $type)->orderBy('created_at', 'DESC')->get();
 
+        // 게시판 이름 조회
+        $resultBoardName = BoardName::select('name', 'type')
+                                        ->where('type', $type)
+                                        ->first();
+       
         return view('boardindex')
-            ->with('data', $resultBoardList);
+            ->with('data', $resultBoardList)
+            ->with('boardNameInfo', $resultBoardName);
     }
 
     /**
@@ -45,15 +52,18 @@ class BoardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
     public function store(Request $request)
     {
+        $filePath = $request->file('file')->store('img');
+
         $insertData = $request->only('title', 'content' , 'type');
         $insertData['user_id'] = Auth::id();
-        $insertData['img'] = '/img/cat1.png'; // TODO : 나중에 수정
+        $insertData['img'] = $filePath;
 
-        $resultInsert = Board::Create($insertData);
+        Board::Create($insertData);
 
-        return redirect()->route('board.index');
+        return redirect()->route('board.index', ['type' => $request->type]);
     }   
 
     /**
@@ -70,9 +80,9 @@ class BoardController extends Controller
         //  $resultBoardInfo->auth_id = Auth::id();
  
          $responseData = $resultBoardInfo->getOriginal();
-         $responseData['auth_id'] =Auth::id();
+         $responseData['auth_id'] = Auth::id();
          Log::debug('json', $responseData);
-         return response()->json($resultBoardInfo);
+         return response()->json($responseData);
     }
 
     /**
@@ -106,6 +116,14 @@ class BoardController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Log::debug('board.delete', ['id' => $id]);
+        Board::destroy($id);
+        $responseData = [
+            'errorFlg' => false
+            ,'deletedId' => $id
+        ];
+
+        Log::debug('board.delete return', $responseData);
+        return response()->json($responseData);
     }
 }

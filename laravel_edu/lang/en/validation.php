@@ -158,6 +158,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'email' => '이메일'
+        ,'password' => '비밀번호'
+        ,'name' => '이름'
+    ],
 
 ];
