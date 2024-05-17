@@ -1,21 +1,57 @@
 <template>
-   <div class="bg_black" v-if="data.flgModal">
+  <transition name="container">
+    <div class="bg_black" v-if="props.flgModal">
     <div class="bg_white">
-        <img :src="data.product.img">
-        <h4>{{data.product.productName}}</h4>
-        <p>{{data.product.productContent}}</p>
-        <p>{{data.product.price}}원</p>
-        <!-- <button @click="flgModal = !flgModal">닫기</button> -->
+        <img :src="props.product.img">
+        <h4>{{props.product.productName}}</h4>
+        <p>{{props.product.productContent}}</p>
+        <p>{{props.product.price}}원</p>
+        <p>총액 {{ props.product.price * cnt}}원</p>
+        <input type="number" min="1" v-model="cnt">
+        <br>
+        <br>
+        <button @click = "close">닫기</button>
         </div>
     </div>
+  </transition>
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import { defineEmits,defineProps, ref } from 'vue';
 
-const data = defineProps({
+const props = defineProps({
   'product': Object
   ,'flgModal': Boolean
 });
+const emit = defineEmits(['mycloseModal']);
 
+// 총액 처리 부분
+const cnt = ref(1);
+
+function close() {
+  cnt.value = 1;
+  emit('myCloseModal', props.product.productName);
+}
 </script>
+<style>
+.container-enter-from{
+  opacity: 0;
+}
+.container-enter-active{
+  transition: 0.25s ease;
+}
+.container-enter-to{
+  opacity: 1;
+}
+
+
+.container-leave-from {
+  transform: translateX(0px);
+}
+.container-leave-active {
+  transition: all 1s;
+}
+.container-leave-to {
+  transform: translateX(2133px);
+}
+</style>
