@@ -5,6 +5,7 @@
         <input v-model="userInfo.password" type="password" name="password" placeholder="비밀번호">
         <button @click="$store.dispatch('login', userInfo)"class="btn btn-submit btn-bg-black">로그인</button>
     </div>
+    <h1>{{ $store.state.userInfo.account }}</h1>
 </template>
 
 <script setup>
