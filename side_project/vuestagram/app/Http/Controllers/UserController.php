@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Exceptions\MyAuthException;
 use App\Exceptions\MyValidateException;
 use App\Models\User;
-use MyToken;
 use MyUserValidate;
+use MyToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
@@ -31,14 +31,14 @@ class UserController extends Controller
         }
 
         // 유저 정보 조회
-        $resultUserInfo = User::where('account', $requset->account)->withCount('boards')->first();
+        $resultUserInfo = User::where('account', $requset->account)
+                                ->withCount('boards')
+                                ->first();
 
         // 미등록 유저 체크
         if(!isset($resultUserInfo)) {
-            // 유저 없음
             throw new MyAuthException('E20');
         }
-
 
         // 패스워드 체크
         if(!(Hash::check($requset->password, $resultUserInfo->password))) {
@@ -48,7 +48,7 @@ class UserController extends Controller
         // 토큰 발행
         list($accessToken, $refreshToken) = MyToken::createTokens($resultUserInfo);
 
-        // 리프레시 토큰 저장 
+        // 리프래시 토큰 저장
         MyToken::updateRefreshToken($resultUserInfo, $refreshToken);
 
         // response Data
@@ -59,6 +59,29 @@ class UserController extends Controller
             ,'refreshToken' => $refreshToken
             ,'data' => $resultUserInfo
         ];
+        return response()->json($responseData, 200);
+    }
+
+    /**
+     * 로그아웃
+     * 
+     * @param   Illuminate\Http\Request $request
+     * 
+     * @return  response() json
+     */
+    public function logout(Request $request) {
+        $id = MyToken::getValueInPayload($request->bearerToken(), 'idt');
+
+        $userInfo = User::find($id);
+
+        MyToken::removeRefreshToken($userInfo);
+
+        $responseData = [
+            'code' => '0'
+            ,'msg' => ''
+            ,'data' => $userInfo
+        ];
+
         return response()->json($responseData, 200);
     }
 }

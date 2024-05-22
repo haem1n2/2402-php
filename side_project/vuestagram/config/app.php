@@ -192,8 +192,9 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'MyUserValidate' => App\MyFacade\MyUserValidateFacade::class,
+        'MyBoardValidate' => App\MyFacade\MyBoardValidateFacade::class,
         'MyToken' => App\MyFacade\MyTokenFacade::class,
-        'MyEncrypt' => App\MyFacade\MyEncryFacade::class,
+        'MyEncrypt' => App\MyFacade\MyEncryptFacade::class,
     ])->toArray(),
 
 ];

@@ -11,12 +11,19 @@ class Board extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'user_id'
-        ,'content'
-        ,'img'
-        ,'like',
+        'user_id',
+        'content',
+        'img',
+        'like',
     ];
 
+    /**
+     * TimeZone format when serializing JSON
+     *
+     * @param \DateTimeInterface $date
+     *
+     * @return String('Y-m-d H:i:s')
+     */
     protected function serializeDate(\DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');

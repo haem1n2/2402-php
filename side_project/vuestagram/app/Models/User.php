@@ -35,15 +35,26 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
+        'refresh_token',
     ];
+
+    /**
+     * TimeZone format when serializing JSON
+     *
+     * @param \DateTimeInterface $date
+     *
+     * @return String('Y-m-d H:i:s')
+     */
     protected function serializeDate(\DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
     }
 
+    /**
+     * Accessor : Column gender
+     */
     public function getGenderAttribute($value) {
-        return $value === '0' ? '남자' : '여자';
+        return $value == '0' ? '남자' : '여자';
     }
 
     public function boards() {

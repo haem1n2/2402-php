@@ -124,6 +124,14 @@ header {
     display: flex;
     align-items: center;
 }
+.eader-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 1000px;
+    padding: 10px 20px;
+}
 .header-content {
     display: flex;
     justify-content: space-between;

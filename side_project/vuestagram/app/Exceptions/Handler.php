@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Utils\MyValidate;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Support\Facades\Log;
 use PDOException;
@@ -41,15 +42,15 @@ class Handler extends ExceptionHandler
         });
     }
 
-
-
-/**
- *  Exception 핸들링 커스텀
- */
+    /**
+     * Exception 핸들링 커스텀
+     */
     public function render($request, Throwable $exception) {
+        // 데이터 초기화
         $errorCode = 'E99';
         $errorMsgList = $this->context();
 
+        // Exception Instance 체크
         if($exception instanceof MyValidateException) {
             $errorCode = $exception->getMessage();
             $errorMsgList = $exception->context();
@@ -71,17 +72,16 @@ class Handler extends ExceptionHandler
 
         return response()->json($responseData, $errorMsgList[$errorCode]['status']);
     }
-
     /**
-     * 에러 메세지 리스트 
+     * 에러 메세지 리스트
      * 
-     *  @return Array 에러메세지 배열
+     * @return Array 에러메세지 배열
      */
     public function context() {
         return [
-            'E80' => ['status' => 500, 'msg' => 'DB 에러'],
-            'E99' => ['status' => 500, 'msg' => '시스템 에러'],
+            'E80' => ['status' => 500, 'msg' => 'DB에러가 발생했습니다.'],
+            'E90' => ['status' => 500, 'msg' => '요청하신 서비스는 없는 서비스입니다.'],
+            'E99' => ['status' => 500, 'msg' => '시스템 에러가 발생했습니다.'],
         ];
     }
-
 }
